@@ -7,9 +7,9 @@ struct Node {
     Node* left;
 
     Node(int n){
-        int num = n;
-        Node* left=nullptr;
-        Node* right=nullptr;
+         num = n;
+        left=nullptr;
+        right=nullptr;
     }
 };
 
