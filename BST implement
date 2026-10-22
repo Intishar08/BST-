@@ -38,45 +38,45 @@ bool Search(Node* nodo, int numc) {
     return Search(nodo->rchild, numc);
 }
 
-Node* findMin(Node* root) {
-    if (root == nullptr) {
+Node* findMin (Node* root){
+    if (root == nullptr){
         return nullptr;
     }
-
-    Node* corr = root;
-    while (corr->lchild != nullptr) {
-        corr = corr->lchild;
-    }
-    return corr;
+    
+Node* corr = root;
+while (corr -> rchild != nullptr){
+corr =  corr->lchild;
+}
+return corr;
 }
 
-Node* findMax(Node* root) {
-    if (root == nullptr) {
+Node* findMax (Node* root){
+    if (root == nullptr){
         return nullptr;
     }
-
-    Node* corr = root;
-    while (corr->rchild != nullptr) {
-        corr = corr->rchild;
-    }
-    return corr;
+    
+Node* corr = root;
+while (corr -> lchild != nullptr){
+corr =  corr-> rchild;
+}
+return corr;
 }
 
-int countNodes(Node* nodo) {
-    if (nodo == nullptr) {
+int countNodes (Node  *nodo) {
+    if (nodo == nullptr){
         return 0;
     }
 
     return 1 + countNodes(nodo->lchild) + countNodes(nodo->rchild);
-}
+} 
 
 int countLeaves(Node* nodo) {
     if (nodo == nullptr) {
-        return 0;
+        return 0;                      
     }
 
     if (nodo->lchild == nullptr && nodo->rchild == nullptr) {
-        return 1;
+        return 1;                      
     }
 
     return countLeaves(nodo->lchild) + countLeaves(nodo->rchild);
@@ -92,5 +92,8 @@ int countInRange(Node* nodo, int min, int max) {
     if (nodo->num > max) {
         return countInRange(nodo->lchild, min, max);
     }
-    return 1 + countInRange(nodo->lchild, min, max) + countInRange(nodo->rchild, min, max);
+    return 1 + countInRange(nodo->lchild, min, max)
+             + countInRange(nodo->rchild, min, max);
 }
+
+
